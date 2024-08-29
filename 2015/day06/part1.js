@@ -1,12 +1,16 @@
-const fs = require("fs");
-let input = fs.readFileSync("input.txt").toString().trim().split("\n");
+const fs = require("node:fs");
+const path = require("node:path");
+const inputPath = path.join(path.dirname(require.main.filename), "input.txt");
+let input = fs.readFileSync(inputPath).toString().trim().split("\n");
 
 // Clean the input to be mapped as actions + coordinates
 let cleanInput = input.map((instruction) => {
-  let [_, action, startX, startY, endX, endY] =
+  var execResult =
     /(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)/.exec(
       instruction
     );
+  console.log(`What is execResult?`, execResult);
+  let [_, action, startX, startY, endX, endY] = execResult;
   [startX, startY, endX, endY] = [startX, startY, endX, endY].map(Number);
   //  console.log(action, startX, startY, endX, endY);
   return {

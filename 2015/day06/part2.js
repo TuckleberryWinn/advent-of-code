@@ -1,5 +1,7 @@
-const fs = require("fs");
-let input = fs.readFileSync("input.txt").toString().trim().split("\n");
+const fs = require("node:fs");
+const path = require("node:path");
+const inputPath = path.join(path.dirname(require.main.filename), "input.txt");
+let input = fs.readFileSync(inputPath).toString().trim().split("\n");
 
 // Clean the input to be mapped as actions + coordinates
 let cleanInput = input.map((instruction) => {
