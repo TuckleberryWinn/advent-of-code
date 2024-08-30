@@ -5,8 +5,6 @@ let input = fs.readFileSync(inputPath).toString().trim().split("\r\n");
 
 let totalChars = 0;
 let totalPlusEncoded = 0;
-let previousSlashCount = 0;
-const escapeChars = ['"', "\\", "x"];
 
 for (const line of input) {
   // take in current line length and add it to total count
