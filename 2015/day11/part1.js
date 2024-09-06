@@ -11,7 +11,7 @@ const testRuleThree = /(.)\1.*?(.)\2/;
 
 do {
   incrementInput(1);
-} while (passSecurityTest());
+} while (notPassSecurityTest());
 
 function incrementInput(position) {
   let holder = getCharIndex(input[input.length - position]);
@@ -36,7 +36,7 @@ function indexToChar(index) {
   return String.fromCharCode(index + asciiOffsetValue);
 }
 
-function passSecurityTest() {
+function notPassSecurityTest() {
   let testCase = input.join("");
   //  console.log(testCase);
   if (
